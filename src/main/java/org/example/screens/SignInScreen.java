@@ -4,19 +4,18 @@ import io.appium.java_client.AppiumDriver;
 import org.example.models.User;
 import org.openqa.selenium.By;
 
-public class SignInScreen {
-    private AppiumDriver appiumDriver;
-    By email=By.className("//android.widget.EditText[@text='id:email']");
-    By password=By.className("//android.widget.EditText[@text='id:password']");
-    By login=By.className("//android.widget.TextView[@text='LOGIN']");
+public class SignInScreen extends MobileScreen{
+    By email=By.xpath("//android.widget.EditText[@text='id:email']");
+    By password=By.xpath("//android.widget.EditText[@text='id:password']");
+    By login=By.xpath("//android.widget.TextView[@text='LOGIN']");
 
     public SignInScreen(AppiumDriver appiumDriver) {
-        this.appiumDriver = appiumDriver;
+        super(appiumDriver);
     }
     public HomeScreen signIn(User client){
-        appiumDriver.findElement(email).sendKeys(client.getEmail());
+        screenWaits.waitForElementToBeVisible(email).sendKeys(client.getEmail());
         //enterLoginInfo(email, client.getEmail());
-        appiumDriver.findElement(password).sendKeys(client.getPassword());
+        screenWaits.waitForElementToBeVisible(password).sendKeys(client.getPassword());
         clickSignIn();
 
         return new HomeScreen(appiumDriver);
@@ -26,6 +25,6 @@ public class SignInScreen {
         appiumDriver.findElement(by).sendKeys(str);
     }
     public void clickSignIn(){
-        appiumDriver.findElement(login).click();
+        screenWaits.waitForElementToBeVisible(login).click();
     }
 }

@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     testImplementation 'org.testng:testng:7.8.0'
-    implementation 'io.appium:java-client:8.5.0'
+    //implementation 'io.appium:java-client:8.5.0'
     testImplementation 'org.testng:testng:7.8.0'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
@@ -19,6 +19,11 @@ dependencies {
     annotationProcessor('org.projectlombok:lombok:1.18.20')
     testImplementation('org.projectlombok:lombok:1.18.20')
     testAnnotationProcessor('org.projectlombok:lombok:1.18.20')
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.1'
+    implementation group: 'io.appium', name: 'java-client', version: '8.0.0' // Use the appropriate version
+    implementation('org.awaitility:awaitility:4.1.0')
+
+
 
 
 }
