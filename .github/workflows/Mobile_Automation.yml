@@ -29,6 +29,7 @@ jobs:
         uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
         with:
           arguments: build
+          timeout-minutes: 10
 
   mobile_test:
     runs-on: macos-latest
@@ -66,6 +67,7 @@ jobs:
           force-avd-creation: true
           disable-animations: true
           script: ./gradlew runMobileTests --stacktrace
+          timeout-minutes: 15
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
